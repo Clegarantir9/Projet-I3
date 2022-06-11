@@ -7,7 +7,7 @@ class Membership {
 	
 	function validate_user($un, $pwd) {
 		$mysql = New Mysql();
-		$ensure_credentials = $mysql->verify_Username_and_Pass($un,$un, md5($pwd));
+		$ensure_credentials = $mysql->verify_Username_and_Pass($un,$un, hash('sha256', $pwd));
 		
 		if($ensure_credentials) {
 			$_SESSION['status'] = 'authorized';
@@ -38,7 +38,7 @@ class Membership {
 		if($existe>0) {
 			return "compte deja éxistant email ou pseudo deja utilisé";
 		} else {
-			$mysql->create_account($un,$email, md5($pwd));
+			$mysql->create_account($un,$email, hash('sha256', $pwd));
 			$_SESSION['status'] = 'authorized';
 			header("location: index.php");
 
