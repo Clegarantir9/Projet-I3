@@ -6,11 +6,10 @@
 #include <Wire.h>
 
 // Replace with your network credentials
-//const char* ssid     = "Livebox-44F4";
-//const char* password = "FAjqqds94jYPG7yLdb";
-const char* ssid     = "Sa me sung";
-const char* password = "testtest";
-
+const char* ssid     = "Livebox-44F4";
+const char* password = "FAjqqds94jYPG7yLdb";
+//const char* ssid     = "Honor";
+//const char* password = "Esieepaul1234";
 
 // REPLACE with your Domain name and URL path or IP address with path
 const char* serverName = "http://surveillance-environnementale.unilasalle.fr/post-esp-data.php";
@@ -77,7 +76,11 @@ int read_dual_sensors(int io) {
   lox2.rangingTest(&measure2, false); // pass in 'true' to get debug data printout!
 
     sensor1 = measure1.RangeMilliMeter;
-
+    //sensor2 = measure2.RangeMilliMeter;
+   // Serial.print("1: ");
+     // Serial.print(sensor1);
+    //  Serial.print("2: ");    
+     // Serial.print(sensor2);    
     if(sensor1 < 800){  
       Serial.print("1: ");
       Serial.print(sensor1);
@@ -89,7 +92,7 @@ int read_dual_sensors(int io) {
       out = out + 1;
     }
  sensor2 = measure2.RangeMilliMeter;
-
+    
     if(sensor2 < 800){ 
       Serial.print("2: ");
       Serial.print(sensor2);
