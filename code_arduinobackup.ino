@@ -132,7 +132,7 @@ gas.begin(Wire, 0x08);
   // initialize the Ethernet shield using DHCP:
   if (Ethernet.begin(mac) == 0) {
     Serial.println("Failed to obtaining an IP address using DHCP");
-    while(true);
+    
   }
     Serial.println("ethernet OK");
 
