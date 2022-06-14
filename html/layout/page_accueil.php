@@ -46,10 +46,10 @@
 
             <tr>
               		<td class="col">
-						<div class="gauge-wrap gwsolo" data-value="<?php echo $singleRow['SUM(io)']/4+1;?>"></div>
+						<div class="gauge-wrap gwsolo" data-value="<?php if($singleRow['SUM(io)']>0){ echo $singleRow['SUM(io)']/4+1;}else{echo "1";}?>"></div>
 					</td>
 					<td class="col">
-              			<h1 id="personne"><?php echo $singleRow['SUM(io)'];?> <a>   / 400 Personnes</a></h1>							
+              			<h1 id="personne"><?php if($singleRow['SUM(io)']>0){ echo $singleRow['SUM(io)'];}else{echo "0";}	?> <a>   / 400 Personnes</a></h1>						
 					</td>                
 
                     <th colspan="2" class="toshow">
