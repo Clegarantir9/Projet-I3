@@ -76,35 +76,54 @@ int read_dual_sensors(int io) {
   lox2.rangingTest(&measure2, false); // pass in 'true' to get debug data printout!
 
     sensor1 = measure1.RangeMilliMeter;
-   
-    if(sensor1 < 800){  
+    sensor2 = measure2.RangeMilliMeter;
+if(sensor1 <800 || sensor2 <800){
+    if (sensor1<sensor2){io= 1;}else {io=-1;}
+
+    
       Serial.print("1: ");
       Serial.print(sensor1);
-      Serial.print("mm"); 
+      Serial.print(" 2: ");    
+      Serial.print(sensor2); 
 
-      io=1;
-
-    }else{ 
-      out = out + 1;
+    }else{
+      io = 0;
     }
- sensor2 = measure2.RangeMilliMeter;
-    
-    if(sensor2 < 800){ 
-      Serial.print("2: ");
-      Serial.print(sensor2);
-      Serial.print("mm"); 
+  Serial.println(".");
+  
+//     sensor1 = measure1.RangeMilliMeter;      
+//    if(sensor1 < 800){  
+//      Serial.print("1: ");
+//      Serial.print(sensor1);
+//      Serial.print("mm"); 
+//
+//      io=1;
+//
+//    }else{ 
+//      out = out + 1;
+//    }
+// //sensor2 = measure2.RangeMilliMeter;
+//    
+//    if(sensor2 < 800){ 
+//      Serial.print("2: ");
+//      Serial.print(sensor2);
+//      Serial.print("mm"); 
+//
+//      io=-1;
+//
+//    }else{ 
+//      out = out + 1;
+//    } 
+//
+//
+//if (out == 2){
+//   Serial.println(".");
+//   return io = 0;
+//}else{
+//  Serial.println();
+//}
 
-      io=-1;
 
-    }else{ 
-      out = out + 1;
-    } 
-if (out == 2){
-   Serial.println(".");
-   return io = 0;
-}else{
-  Serial.println();
-}
   return io;
 }
 
