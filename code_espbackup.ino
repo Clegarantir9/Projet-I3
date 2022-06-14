@@ -76,11 +76,7 @@ int read_dual_sensors(int io) {
   lox2.rangingTest(&measure2, false); // pass in 'true' to get debug data printout!
 
     sensor1 = measure1.RangeMilliMeter;
-    //sensor2 = measure2.RangeMilliMeter;
-   // Serial.print("1: ");
-     // Serial.print(sensor1);
-    //  Serial.print("2: ");    
-     // Serial.print(sensor2);    
+   
     if(sensor1 < 800){  
       Serial.print("1: ");
       Serial.print(sensor1);
